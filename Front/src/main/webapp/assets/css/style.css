@@ -1,0 +1,28 @@
+body{
+	padding-top:120px;
+	/*background: url(./webapp/image/back.jpg);*/
+}
+
+
+
+#ftr{
+     
+	text-align:center;
+}
+footer{
+	
+	min-height: 150px;
+width: 100%;
+background-color: #666666;
+list-style: none;
+color: #fff;
+padding-top: 20px;
+margin-top: 20px;
+	
+}
+ul.unstyle{
+	list-style:none;
+}
+#reghead{
+	text-align:center;
+}
