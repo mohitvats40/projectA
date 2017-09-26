@@ -11,15 +11,19 @@
          
         </div>
         <div id="navbar" class="collapse navbar-collapse">
-                <ul class="nav navbar-nav" data-spy="affix" data-offset-top="205">
+                <ul class="nav navbar-nav">
           <li class="active"><a class="navbar-brand" href="#"><h2>Electromart</h2></a></li>
-            <li><a href="${contextRoot}/home"><i class="fa fa-home fa-2x"></i> HOME</a></li>
-            <li><a href="${contextRoot}/about"><i class="fa fa-info-circle fa-2x"></i> ABOUT</a></li>
-            <li><a href="${contextRoot}/contactus"><i class="fa fa-phone fa-2x"></i> CONTACTus</a></li>
+            <li id="home"><a href="${contextRoot}/home"><i class="fa fa-home fa-2x"></i> HOME</a></li>
+            <li id="about"><a href="${contextRoot}/about"><i class="fa fa-info-circle fa-2x"></i> ABOUT</a></li>
+         
+            <li id="contactus"><a href="${contextRoot}/contactus"><i class="fa fa-phone fa-2x"></i> CONTACTus</a></li>
+               <li id="product"><a href="${contextRoot}/show/all/products"><i class="fa fa-list fa-2x"></i>Our Products</a></li>
+                   <li id="adminProduct"><a href="${contextRoot}/admin/product"><i class="fa fa-list fa-2x"></i>Admin Products</a></li>
+           
             </ul>
             <ul class="nav navbar-nav pull-right">
-            <li><a href="${contextRoot}/login" role="button" ><i class="fa fa-user fa-2x" aria-hidden="true"></i> LOGIN</a></li>
-            <li><a href="${contextRoot}/regester" role="button" ><i class="fa fa-pencil fa-2x" aria-hidden="true"></i> REGISTER</a></li>
+            <li id="login"><a href="${contextRoot}/login" role="button" ><i class="fa fa-user fa-2x" aria-hidden="true"></i> LOGIN</a></li>
+            <li id="regester"><a href="${contextRoot}/regester" role="button" ><i class="fa fa-pencil fa-2x" aria-hidden="true"></i> REGISTER</a></li>
           </ul>
 
         </div>

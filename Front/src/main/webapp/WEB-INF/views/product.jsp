@@ -1,34 +1,81 @@
 
 
-	<div class="container">
-		<h2>Our Products</h2>
-		<p>book your product online</p>
-		<table class="table table-striped">
-			<thead>
-				<tr>
-					<th>Image</th>
-					<th>name</th>
-					<th>catogrey</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td>John</td>
-					<td>Doe</td>
-					<td>john@example.com</td>
-				</tr>
-				<tr>
-					<td>Mary</td>
-					<td>Moe</td>
-					<td>mary@example.com</td>
-				</tr>
-				<tr>
-					<td>July</td>
-					<td>Dooley</td>
-					<td>july@example.com</td>
-				</tr>
-			</tbody>
-		</table>
+<div class="container">
+
+	<div class="row">
+
+
+
+		<div class="col-md-3">
+			<%@include file="add.jsp"%>
+
+		</div>
+
+
+		<div class="col-md-9">
+			<div class="row">
+				<div class="col-lg-12">
+					<c:if test="${ALLPRODUCTS==true}">
+						<script>
+							window.category_id = '';
+						</script>
+						<ol class="breadcrumb">
+							<li><a href="${contextRoot}/home">Home</a></li>
+							<li class="active">All Products</li>
+						</ol>
+					</c:if>
+
+					<c:if test="${CATEGORYPRODUCTS==true}">
+						<script>
+							window.category_id = '${category.cId}';
+						</script>
+						<ol class="breadcrumb">
+							<li><a href="${contextRoot}/home">Home</a></li>
+							<li class="active">Category</li>
+							<li class="active">${category.cName}</li>
+						</ol>
+					</c:if>
+				</div>
+
+			</div>
+
+			<div class="row">
+				<div class="col-xs-12">
+					<table id="productListTable"
+						class="table table-striped table-borderd">
+						<thead>
+							<tr>
+								<th></th>
+								<th>name</th>
+								<th>brand</th>
+								<th>price</th>
+								<th>Qat</th>
+								<th></th>
+
+							</tr>
+
+						</thead>
+						<tfoot>
+							<tr>
+								<th></th>
+								<th>name</th>
+								<th>brand</th>
+								<th>price</th>
+								<th>Qat</th>
+								<th></th>
+
+							</tr>
+						</tfoot>
+
+
+					</table>
+
+				</div>
+			</div>
+		</div>
+
 	</div>
+
+</div>
 
 

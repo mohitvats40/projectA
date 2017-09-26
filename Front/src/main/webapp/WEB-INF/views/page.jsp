@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 
 <spring:url var="css" value="/resources/css" />
@@ -19,14 +19,20 @@
 <meta name="author" content="">
 <link rel="icon" href="${images}/img1.jpg">
 <title>Electromart- ${title}</title>
+
+<script>
+	window.menu = '${title}';
+	window.contextRoot = '${contextRoot}'
+</script>
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <!-- Bootstrap core CSS -->
 <link href="${css}/bootstrap.css" rel="stylesheet">
 <link href="${css}/bootstrap.min.css" rel="stylesheet">
+<link href="${css}/dataTables.bootstrap.css" rel="stylesheet">
 <!-- Custom styles for this template -->
 <link href="${css}/style.css" rel="stylesheet">
-<script src="${js}/bootstrap.js"></script>
+
 
 </head>
 <body>
@@ -47,21 +53,30 @@
 	<c:if test="${REGESTER==true}">
 		<%@include file="regester.jsp"%>
 	</c:if>
-	<c:if test="${PRODUCT==true}">
+	<c:if test="${ALLPRODUCTS==true or CATEGORYPRODUCTS==true}">
 		<%@include file="product.jsp"%>
 	</c:if>
+	<c:if test="${SHOWPRODUCT==true}">
+		<%@include file="show.jsp"%>
+	</c:if>
+	<c:if test="${ADMIN==true}">
+		<%@include file="adminProduct.jsp"%>
+	</c:if>
+
 
 	<%@include file="footer.jsp"%>
 
-	<script
-		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	<script>
-		window.jQuery
-				|| document
-						.write('<script src="${js}/bootstrap.js"><\/script>')
-	</script>
+	<script src="${js}/jquery.js"></script>
+
 	<script src="${js}/bootstrap.min.js"></script>
-	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-	<script src="${js}/bootstrap.js"></script>
+
+	<script src="${js}/jquery.dataTables.js"></script>
+
+	<script src="${js}/dataTables.bootstrap.js"></script>
+
+	<script src="${js}/myapp.js"></script>
+
+
+
 </body>
 </html>
