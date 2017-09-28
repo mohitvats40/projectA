@@ -24,6 +24,14 @@ public class jasondatacont {
 		return productdao.listActiveProduct();
 	}
 	
+	@RequestMapping("/madmin/all/product")
+	@ResponseBody
+	public List<Product> getAllProductforAdmin(){
+		
+		return productdao.list();
+	}
+	
+	
 	@RequestMapping("/category/{cId}/product")
 	@ResponseBody
 	public List<Product> getProductByCategory(@PathVariable int cId){
