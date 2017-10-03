@@ -22,10 +22,11 @@
            
             </ul>
             <ul class="nav navbar-nav pull-right">
-            <li id="login"><a href="${contextRoot}/login" role="button" ><i class="fa fa-user fa-2x" aria-hidden="true"></i> LOGIN</a></li>
-            <li id="regester"><a href="${contextRoot}/regester" role="button" ><i class="fa fa-pencil fa-2x" aria-hidden="true"></i> REGISTER</a></li>
+             <li id="register"><a href="${contextRoot}/register" role="button" ><i class="fa fa-pencil fa-2x" aria-hidden="true"></i> Sign Up</a></li>
+            <li id="login"><a href="${contextRoot}/login" role="button" ><i class="fa fa-user fa-2x" aria-hidden="true"></i> Login</a></li>
+           
           </ul>
-
+ 
         </div>
         <div class="container">
         <div class="col-sm-2">

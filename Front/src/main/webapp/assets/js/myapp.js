@@ -1,5 +1,5 @@
- $(function() {
-	switch(menu) {
+$(function() {
+	switch (menu) {
 	case 'About':
 		$('#about').addClass('active');
 		break;
@@ -19,137 +19,299 @@
 		$('#regester').addClass('active');
 		break;
 	default:
-		 if(menu=="Home") break;
+		if (menu == "Home")
+			break;
 		$('#product').addClass('active');
-		$('#a_'+menu).addClass('active');
+		$('#a_' + menu).addClass('active');
 		break;
 
 	}
-	
-
 
 	var $table = $('#productListTable');
-		if ($table.length) {
-			// console.log('inside the table');
-			var jsonUrl = '';
-			if (window.category_id == '') {
+	if ($table.length) {
+		// console.log('inside the table');
+		var jsonUrl = '';
+		if (window.category_id == '') {
 
-				jsonUrl = window.contextRoot + '/json/data/all/product';
-			} else {
-				jsonUrl = window.contextRoot + '/json/data/category/'+ window.category_id + '/product';
-			}
-			$table.DataTable({
-						lengthMenu: [
-								[ 5, 8, 12, -1],[ '5', '8', '12','ALL' ] ],
-						pageLength: 5,
-						ajax: {
-							url: jsonUrl,
-							dataSrc: ''
-					 	},
-					 	
-						columns: [
-								{
-									data : 'pCode',
-									mRender : function(data, type, row) {
-										return '<img src="' + window.contextRoot
-												+ '/resources/images/' + data
-												+ '.jpg" class="dataTableImg"/>'
-									}
-								},
-								{
-									data: 'pName'
-								},
-								{
-									data: 'pBrand'
-								},
-								{
-									data: 'pPrice',
-								        mRender : function(data, type, row) {
-										return '&#8377; ' + data;
-									}
-								},
-								{
-									data: 'pQat',
-								     mRender: function(data, type, row) {
-								    	 
-											if(data < 1){
-												return '<span style="color:red">Out of stock!</span>';
-											}
-											
-												return data;
-											
-											
-										}
-								},
+			jsonUrl = window.contextRoot + '/json/data/all/product';
+		} else {
+			jsonUrl = window.contextRoot + '/json/data/category/'
+					+ window.category_id + '/product';
+		}
+		$table
+				.DataTable({
+					lengthMenu : [ [ 5, 8, 12, -1 ], [ '5', '8', '12', 'ALL' ] ],
+					pageLength : 5,
+					ajax : {
+						url : jsonUrl,
+						dataSrc : ''
+					},
 
-								{
-									data: 'pId',
-									bShortable : false,
-									mRender: function(data, type, row) {
-										var str='';
-										str += '<a href="'+ window.contextRoot+ '/show/'+ data+ '/product" class="btn btn-primary"><span class="glyphicon glyphicon-eye-open"></span></a>  &#160;';
-										if(row.pQat < 1){
-											str += '<a href="javascript:void(0)" class="btn btn-success disabled"><span class="glyphicon glyphicon-shopping-cart"></span></a>';
-										}
-										else{
-											str += '<a href="'+ window.contextRoot+ '/cart/add/'+ data+ '/product" class="btn btn-primary"><span class="glyphicon glyphicon-shopping-cart"></span></a>';
-										}
-										
-										return str;
-									}
+					columns : [
+							{
+								data : 'pCode',
+								mRender : function(data, type, row) {
+									return '<img src="' + window.contextRoot
+											+ '/resources/images/' + data
+											+ '.jpg" class="dataTableImg"/>'
 								}
-								]
+							},
+							{
+								data : 'pName'
+							},
+							{
+								data : 'pBrand'
+							},
+							{
+								data : 'pPrice',
+								mRender : function(data, type, row) {
+									return '&#8377; ' + data;
+								}
+							},
+							{
+								data : 'pQat',
+								mRender : function(data, type, row) {
 
-					});
-		}
-		
-			
-		var $alert=$('.alert');
-		
-		if($alert.length){
-			
-			setTimeout(function(){
-				$alert.fadeOut('slow');
-			},3000)
-		}
-		
-		
-		$('.switch input[type="checkbox"]').on('change',function(){
+									if (data < 1) {
+										return '<span style="color:red">Out of stock!</span>';
+									}
 
-			var checkbox = $(this);
-			var checked=checkbox.prop('checked');
-			var dMsg=(checked)? 'You want to activate the product?':
-				                'You want to deactivate the product?';
-				var value = checkbox.prop('value');
-				bootbox.confirm({
-					
-					size: 'medium',
-					title:'Product Activation & Deactivation',
-					message: dMsg,
-					callback: function(confirmed){
-						if(confirmed){
-							console.log(value);
-							bootbox.alert({
-								size:'medium',
-								title:'Information',
-								message:'you are going to perform operation on product'+value
-							});
-							
-						}
-						else{
-							
-							checkbox.prop('checked', !checked);
-							
-						}
-					}
-					
-					
+									return data;
+
+								}
+							},
+
+							{
+								data : 'pId',
+								bShortable : false,
+								mRender : function(data, type, row) {
+									var str = '';
+									str += '<a href="'
+											+ window.contextRoot
+											+ '/show/'
+											+ data
+											+ '/product" class="btn btn-primary"><span class="glyphicon glyphicon-eye-open"></span></a>  &#160;';
+									if (row.pQat < 1) {
+										str += '<a href="javascript:void(0)" class="btn btn-success disabled"><span class="glyphicon glyphicon-shopping-cart"></span></a>';
+									} else {
+										str += '<a href="'
+												+ window.contextRoot
+												+ '/cart/add/'
+												+ data
+												+ '/product" class="btn btn-primary"><span class="glyphicon glyphicon-shopping-cart"></span></a>';
+									}
+
+									return str;
+								}
+							} ]
+
 				});
+	}
+
+	var $alert = $('.alert');
+
+	if ($alert.length) {
+
+		setTimeout(function() {
+			$alert.fadeOut('slow');
+		}, 3000)
+	}
+
+	var $adminProductTable = $('#adminProductTable');
+	if ($adminProductTable.length) {
+		// console.log('inside the table');
+		var jsonUrl = window.contextRoot + '/json/data/madmin/all/product';
+
+		$adminProductTable
+				.DataTable({
+					lengthMenu : [ [ 10, 20, 30, -1 ],
+							[ '10', '20', '30', 'ALL' ] ],
+					pageLength : 10,
+					ajax : {
+						url : jsonUrl,
+						dataSrc : ''
+					},
+
+					columns : [
+
+							{
+								data : 'pId'
+							},
+							{
+								data : 'pCode',
+								mRender : function(data, type, row) {
+									return '<img src="' + window.contextRoot
+											+ '/resources/images/' + data
+											+ '.jpg" class="adminImage"/>'
+								}
+							},
+							{
+								data : 'pName'
+							},
+							{
+								data : 'pBrand'
+							},
+
+							{
+								data : 'pQat',
+								mRender : function(data, type, row) {
+
+									if (data < 1) {
+										return '<span style="color:red">Out of stock!</span>';
+									}
+
+									return data;
+
+								}
+							},
+
+							{
+								data : 'pPrice',
+								mRender : function(data, type, row) {
+									return '&#8377; ' + data;
+								}
+							},
+
+							{
+								data : 'is_active',
+								bSortable : false,
+								mRender : function(data, type, row) {
+
+									var str = '';
+
+									str += '<label class="switch">';
+									if (data) {
+										str += '<input type="checkbox"  checked="checked" value="'
+												+ row.pId + '"/>';
+
+									} else {
+										str += '<input type="checkbox"   value="'
+												+ row.pId + '"/>';
+									}
+									str += '<div class="slider"></div></label>';
+
+									return str;
+
+								}
+
+							},
+							{
+
+								data : 'pId',
+								bSortable : false,
+								mRender : function(data, type, row) {
+									var str = '';
+
+									str += '<a href="'
+											+ window.contextRoot
+											+ '/admin/'
+											+ data
+											+ '/product" class="btn btn-warning">';
+									str += '<span class="glyphicon glyphicon-pencil"></span></a>';
+									return str;
+
+								}
+
+							} ],
+
+					initComplete : function() {
+						var api = this.api();
+						api
+								.$('.switch input[type="checkbox"]')
+								.on(
+										'change',
+										function() {
+
+											var checkbox = $(this);
+											var checked = checkbox
+													.prop('checked');
+											var dMsg = (checked) ? 'You want to activate the product?'
+													: 'You want to deactivate the product?';
+											var value = checkbox.prop('value');
+											bootbox
+													.confirm({
+
+														size : 'medium',
+														title : 'Product Activation & Deactivation',
+														message : dMsg,
+														callback : function(
+																confirmed) {
+															if (confirmed) {
+																console
+																		.log(value);
+
+																var activationUrl = window.contextRoot
+																		+ '/admin/product/'
+																		+ value
+																		+ '/activation';
+																$
+																		.post(
+																				activationUrl,
+																				function(
+																						data) {
+																					bootbox
+																							.alert({
+																								size : 'medium',
+																								title : 'Information',
+																								message : data
+																							});
+
+																				});
+
+															} else {
+
+																checkbox
+																		.prop(
+																				'checked',
+																				!checked);
+
+															}
+														}
+
+													});
+										});
+					}
+
+				});
+	}
+
+	// validation form
+
+	var $categoryForm = $('#categoryForm');
+
+	if ($categoryForm.length) {
+
+		$categoryForm.validate({
+
+			rules : {
+				cName : {
+					required : true,
+					minlength : 2
+				},
+
+				cDesc : {
+					required : true
+				}
+			},
+
+			messages : {
+
+				cName : {
+					required : 'Please enter category name!',
+					minlength : 'The category name should be not less then 2!!'
+				},
+
+				cDesc : {
+					required : 'Please enter product description!!'
+				}
+			},
+			errorElement : 'em',
+			errorPlacement : function(error, element) {
+				error.addClass('help-block');
+				error.insertAfter(element);
+			}
+
 		});
-
-
+	}
 
 });
- 
- 
-	

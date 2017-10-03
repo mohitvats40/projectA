@@ -36,53 +36,7 @@
 
 </head>
 <body>
-	<%@include file="navbar.jsp"%>
-
-	<c:if test="${HOME==true}">
-		<%@include file="home.jsp"%>
-	</c:if>
-	<c:if test="${ABOUT==true}">
-		<%@include file="about.jsp"%>
-	</c:if>
-	<c:if test="${CONTACT==true}">
-		<%@include file="contactus.jsp"%>
-	</c:if>
-	<c:if test="${LOGIN==true}">
-		<%@include file="login.jsp"%>
-	</c:if>
-	<c:if test="${REGESTER==true}">
-		<%@include file="regester.jsp"%>
-	</c:if>
-	<c:if test="${ALLPRODUCTS==true or CATEGORYPRODUCTS==true}">
-		<%@include file="product.jsp"%>
-	</c:if>
-	<c:if test="${SHOWPRODUCT==true}">
-		<%@include file="show.jsp"%>
-	</c:if>
-	<c:if test="${ADMIN==true}">
-		<%@include file="adminProduct.jsp"%>
-	</c:if>
+<%@include file="flows-navbar.jsp" %>
 
 
-	<%@include file="footer.jsp"%>
-
-	<script src="${js}/jquery.js"></script>
-
-	<script src="${js}/jquery.validate.js"></script>
-
-	<script src="${js}/bootstrap.min.js"></script>
-
-	<script src="${js}/jquery.dataTables.js"></script>
-
-	<script src="${js}/dataTables.bootstrap.js"></script>
-
-	<script src="${js}/bootbox.min.js"></script>
-
-
-
-	<script src="${js}/myapp.js"></script>
-
-
-
-</body>
-</html>
+	<div class="content">

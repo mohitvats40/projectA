@@ -23,7 +23,8 @@
 				<div class="panel-body">
 					<!-- form elements -->
 					<sf:form class="form-horizontal" modelAttribute="product"
-						action="${contextRoot}/admin/product" method="POST"
+						action="${contextRoot}/admin/product" 
+						method="POST"
 						enctype="multipart/form-data">
 
 						<div class="form-group">
@@ -92,7 +93,17 @@
 							<div class="col-md-8">
 								<sf:select class="form-control" id="category_id"
 									path="category_id" items="${categories}" itemLabel="cName"
+									
 									itemValue="cId" />
+									
+									<c:if test="${product.pId==0}">
+									<div class="text-right">
+									<br/>
+									<button type="button" data-toggle="modal" data-target="#categoryModal" class="btn btn-warning btn-xs">Add New Category</button>
+									</div>
+									</c:if>
+									
+									
 
 							</div>
 						</div>
@@ -115,6 +126,7 @@
 			</div>
 		</div>
 	</div>
+
 	<div class="row">
 		<div class="col-xs-12">
 		<h3>Avilable Products</h3>
@@ -128,51 +140,21 @@
 							<th>ID</th>
 							<th>&#160;</th>
 							<th>NAME</th>
+							<th>BRAND</th>
 							<th>QUANTITY</th>
 							<th>PRICE</th>
 							<th>ACTIVE</th>
 							<th>EDIT</th>
 						</tr>
 					</thead>
-					<tbody>
 					
-					
-					
-					<tr>
-					<td>41</td>
-					<td>
-					<img class="adminImage" src="${contextRoot}/resources/images/prd4EE0C448BE.jpg"
-					alt="abcd"
-					/>
-					</td>
-					<td>abcd</td>
-					<td>2</td>
-					<td>&#8377; 120000 </td>
-					
-					
-					<td>
-					<label class="switch">
-					<input type="checkbox"  value="41"/>
-					<div class="slider"></div>
-					</label>
-					</td>
-					
-					
-					<td>
-					<a href="${contextRoot}/admin/41/product" class="btn btn-warning">
-					<span class="glyphicon glyphicon-pencil"></span>
-					</a>
-					</td>
-					</tr>
-					
-					
-					
-					</tbody>
+			
 					<tfoot>
 						<tr>
 							<th>ID</th>
 							<th>&#160;</th>
 							<th>NAME</th>
+							<th>BRAND</th>
 							<th>QUANTITY</th>
 							<th>PRICE</th>
 							<th>ACTIVE</th>
@@ -183,4 +165,43 @@
 			</div>
 		</div>
 	</div>
+
+<div class="modal fade" id="categoryModal" role="dialog" tabindex="-1">
+<div class="modal-dialog" role="document">
+<div class="modal-content">
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal">
+<span>&times;</span>
+</button>
+<h4 class="modal-title">Add New Category</h4>
+</div>
+
+<div class="modal-body">
+
+<sf:form id="categoryForm" modelAttribute="category" action="${contextRoot}/admin/category"
+method="POST" class="form-horizontal">
+
+<div class="form-group">
+<label for="name" class="control-label col-md-4">Category Name:</label>
+<div class="col-md-8">
+<sf:input type="text" path="cName" id="name" class="form-control"/>
+</div>
+</div>
+<div class="form-group">
+<label for="desc" class="control-label col-md-4">Category Description:</label>
+<div class="col-md-8">
+<sf:textarea type="text" cols="" rows="5" path="cDesc" id="desc" class="form-control"/>
+</div>
+</div>
+<div class="form-group">
+<div class="col-md-offset-4 col-md-8">
+<input type="submit" value="Add Category" class="btn btn-primary"/>
+</sf:form>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>

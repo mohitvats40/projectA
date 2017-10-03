@@ -117,6 +117,15 @@ public class HomeController {
 		mv.addObject("SHOWPRODUCT",true);
 		return mv;
 	}
+	
+	
+	@RequestMapping(value = { "register" })
+	public ModelAndView register() {
+		ModelAndView mv = new ModelAndView("page");
+		mv.addObject("title", "Contactus");
+		return mv;
+	}
+
 
 }
 
