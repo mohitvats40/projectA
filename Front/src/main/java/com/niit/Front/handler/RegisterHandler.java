@@ -1,6 +1,8 @@
 package com.niit.Front.handler;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.binding.message.MessageBuilder;
+import org.springframework.binding.message.MessageContext;
 import org.springframework.stereotype.Component;
 
 import com.niit.Back.dao.userDao;
@@ -24,6 +26,31 @@ public class RegisterHandler {
 	public void addBilling(RegisterModel registerModel, Address billing){
 		registerModel.setBilling(billing);;
 	}
+	
+	
+	public String validateUser(User user,MessageContext error){
+		String transitionValue="success";
+		if(!(user.getPassword().equals(user.getConfirmPassword()))){
+			error.addMessage(new MessageBuilder()
+					.error().source("confirmPassword")
+					.defaultText("Password does not match").build());
+			transitionValue = "failure";
+		}
+		
+		if(userdao.getByEmail(user.getEmail())!=null){
+			error.addMessage(new MessageBuilder()
+					.error().source("email")
+					.defaultText("email is already used").build());
+			transitionValue = "failure";
+		}
+		return transitionValue;
+	}
+	
+	
+	
+	
+	
+	
 	public String saveAll(RegisterModel model){
 		String transitionValue="success"; 
 		

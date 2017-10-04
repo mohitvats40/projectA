@@ -17,7 +17,7 @@
 	</div>
 	</div>
 	<div class="panel-footer">
-	<a href="${flowExecutionUrl}&_eventId_personal" class="btn-btn-primary">Edit</a>
+	<a href="${flowExecutionUrl}&_eventId_personal" class="btn btn-primary">Edit</a>
 	</div>
 	</div>
 	</div>
@@ -35,7 +35,7 @@
 	</div>
 	</div>
 	<div class="panel-footer">
-	<a href="${flowExecutionUrl}&_eventId_billing" class="btn-btn-primary">Edit</a>
+	<a href="${flowExecutionUrl}&_eventId_billing" class="btn btn-primary">Edit</a>
 	</div>
 	</div>
 	
@@ -45,7 +45,7 @@
 	<div class="row">
 	<div class="col-sm-4 col-sm-offset-4">
 	<div class="text-center">
-	<a href="${flowExecutionUrl}&_eventId_submit" class="btn-btn-primary">Confirm</a>
+	<a href="${flowExecutionUrl}&_eventId_submit" class="btn btn-primary">Confirm</a>
 	</div>
 	</div>
 	</div>

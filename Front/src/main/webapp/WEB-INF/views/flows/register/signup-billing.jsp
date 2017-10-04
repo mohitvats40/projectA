@@ -67,10 +67,10 @@
 	
 	<div class="form-group">
 	<div class="col-md-offset-4 col-md-8">
-	<button type="submit" class="btn-btn-primery" name="_eventId_personal">
+	<button type="submit" class="btn btn-primery" name="_eventId_personal">
 	<span class="glyphicon glypicon-chevron-left"></span> Previous-Personal
 	</button>
-	<button type="submit" class="btn-btn-primery" name="_eventId_confirm">
+	<button type="submit" class="btn btn-primery" name="_eventId_confirm">
 	Next-Confirm <span class="glyphicon glypicon-chevron-right"></span>
 	</button>
 	</div>
