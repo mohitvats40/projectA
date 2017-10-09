@@ -11,7 +11,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class fileUplode {
 	
-	private static final String ABS_PATH ="D:\\projects\\projectA\\Front\\src\\main\\webapp\\assets\\images";
+	private static final String ABS_PATH ="D:\\projects\\projectA\\Front\\src\\main\\webapp\\assets\\images\\";
 	private static String REAL_PATH ="";
 	private static final Logger logger = LoggerFactory.getLogger(fileUplode.class);
 	public static void uploadFile(HttpServletRequest request, MultipartFile file, String getpCode) {

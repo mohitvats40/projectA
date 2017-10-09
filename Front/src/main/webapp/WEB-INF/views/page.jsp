@@ -17,6 +17,8 @@
 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 <meta name="description" content="">
 <meta name="author" content="">
+<meta name="_csrf" content="${_csrf.token}">
+<meta name="_csrf_header" content="${_csrf.headerName}">
 <link rel="icon" href="${images}/img1.jpg">
 <title>Electromart- ${title}</title>
 
@@ -35,7 +37,7 @@
 
 
 </head>
-<body>
+<body style="padding-top:65px;">
 	<%@include file="navbar.jsp"%>
 
 	<c:if test="${HOME==true}">
@@ -47,9 +49,7 @@
 	<c:if test="${CONTACT==true}">
 		<%@include file="contactus.jsp"%>
 	</c:if>
-	<c:if test="${LOGIN==true}">
-		<%@include file="login.jsp"%>
-	</c:if>
+	
 	<c:if test="${REGESTER==true}">
 		<%@include file="regester.jsp"%>
 	</c:if>
@@ -61,6 +61,9 @@
 	</c:if>
 	<c:if test="${ADMIN==true}">
 		<%@include file="adminProduct.jsp"%>
+	</c:if>
+	<c:if test="${SHOWCART==true}">
+		<%@include file="cart.jsp"%>
 	</c:if>
 
 

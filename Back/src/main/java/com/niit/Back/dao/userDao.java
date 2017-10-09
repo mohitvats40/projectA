@@ -13,7 +13,7 @@ public interface userDao {
 	boolean addAddress(Address address);
 	Address getBillingAddress(User user);
 	List<Address> listShippingAddress(User user);
-	boolean updateCart(Cart cart);
+	
 	
 	
 

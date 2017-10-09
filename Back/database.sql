@@ -79,6 +79,20 @@ INSERT INTO Product
 (pCode,pName,pBrand,pDesc,pPrice,pQat,is_active,Category_id,Supplier_id,Purchase,Views)
 VALUES('PRDdb459jjkqe','micromax','micromax','canvastv',15000.00,2,true,2,3,0,0);
 
+CREATE TABLE cartLine(
 
+id IDENTITY,
+crId int,
+total decimal(10,2),
+pId int,
+pCount int,
+buying_price DECIMAL(10,2),
+is_available boolean,
+
+CONSTRAINT pk_cartLine_id PRIMARY KEY(id),
+CONSTRAINT fk_cartLine_product_id FOREIGN KEY (pId) REFERENCES product (pId),
+CONSTRAINT fk_Product_cart_id FOREIGN KEY (crId) REFERENCES cart (crId)
+
+);
 
 

@@ -26,16 +26,16 @@ public class userTest {
 		context.refresh();
 		userdao = (userDao) context.getBean("userdao");
 	}
-	/*
+	
 	  @Test public void testAdd(){
 	   user=new User(); user.setFname("Mohit");
-	  user.setLname("vats"); user.setEmail("mohitvats40@gmail,com");
-	  user.setContectno("7042287356"); user.setRole("USER");
-	  user.setPassword("1234567");
+	  user.setLname("vats"); user.setEmail("mohitvats40@gmail.com");
+	  user.setContectno("7042287356"); user.setRole("ADMIN");
+	  user.setPassword("mohit");
 	  
 	  assertEquals("failed to add user",true,userdao.addUser(user));
 	  
-	  
+	  /*
 	  address = new Address(); address.setAddressLine1("add1");
 	  address.setAddessLine2("add2"); address.setCity("city");
 	 address.setState("state"); address.setCountery("countery");
@@ -154,7 +154,7 @@ public class userTest {
 		
 	}*/
 	
-	@Test
+	/*@Test
 	public void testgetAddress(){
 		
 		user = userdao.getByEmail("mohitvats40@gmail.com");
@@ -164,7 +164,7 @@ public class userTest {
 		assertEquals("failed to add user","city",userdao.getBillingAddress(user).getCity());
 		
 		
-	}
+	}*/
 	
 	
 	
@@ -173,7 +173,7 @@ public class userTest {
 	
 	
 	
-	
+	  }
 	
 	
 	

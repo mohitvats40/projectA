@@ -18,6 +18,9 @@ $(function() {
 	case 'Regester':
 		$('#regester').addClass('active');
 		break;
+	case 'User Cart':
+		$('#userCart').addClass('active');
+		break;
 	default:
 		if (menu == "Home")
 			break;
@@ -25,6 +28,14 @@ $(function() {
 		$('#a_' + menu).addClass('active');
 		break;
 
+	}
+
+	var token = $('meta[name="_csrf"]').attr('content');
+	var header = $('meta[name="_csrf_header"]').attr('content');
+	if (token.length > 0 && header.length > 0) {
+		$(document).ajaxSend(function(e, xhr, options) {
+			xhr.setRequestHeader(header, token);
+		});
 	}
 
 	var $table = $('#productListTable');
@@ -313,5 +324,64 @@ $(function() {
 
 		});
 	}
+
+	var $loginForm = $('#loginForm');
+
+	if ($loginForm.length) {
+
+		$loginForm.validate({
+
+			rules : {
+				username : {
+					required : true,
+					email : true
+				},
+
+				password : {
+					required : true
+				}
+			},
+
+			messages : {
+				username : {
+					required : 'Please enter username !',
+					email : 'please enter valid email address!'
+				},
+				password : {
+					required : 'Please enter password !!'
+				}
+			},
+			errorElement : 'em',
+			errorPlacement : function(error, element) {
+				error.addClass('help-block');
+				error.insertAfter(element);
+			}
+		});
+	}
+
+	$('button[name="refreshCart"]').click(
+			function() {
+				var cartlineId = $(this).attr('value');
+				var countElement = $('#count_' + cartlineId);
+				var originalCount = countElement.attr('value');
+				var currentCount = countElement.val();
+
+				if (currentCount !== originalCount) {
+					if (currentCount < 1 || currentCount > 3) {
+						countElement.val(originalCount);
+						bootbox.alert({
+							size : 'medium',
+							title : 'Error',
+							message : 'Product count should be between 1 and 3'
+						});
+					} else {
+						var updateUrl = window.contextRoot + '/cart/'
+								+ cartlineId + '/update?pCount='
+								+ currentCount;
+						window.location.href = updateUrl;
+					}
+				}
+
+			});
 
 });
