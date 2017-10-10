@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.niit.Back.dao.cartlineDao;
+import com.niit.Back.dao.productDao;
 import com.niit.Back.dto.Cart;
 import com.niit.Back.dto.Product;
 import com.niit.Back.dto.cartLine;
@@ -19,6 +20,9 @@ public class CartService {
 	@Autowired
 	private cartlineDao cartlinedao;
 
+	@Autowired
+	private productDao productdao;
+	
 	@Autowired
 	private HttpSession session;
 
@@ -72,6 +76,32 @@ public class CartService {
 			
 			
 		}
+	}
+
+	public String addCartline(int pId) {
+		String response=null;
+		Cart cart=this.getCart();
+		
+		cartLine cartline=cartlinedao.getByCartAndProduct(cart.getCrId(), pId);
+		if(cartline==null){
+			cartline = new cartLine();
+			
+			Product product = productdao.get(pId);
+			cartline.setCrId(cart.getCrId());
+			cartline.setProduct(product);
+			cartline.setBuying_price(product.getpPrice());
+			cartline.setpCount(1);
+			cartline.setTotal(product.getpPrice());
+			cartline.setIs_available(true);
+			 cartlinedao.add(cartline);
+			 cart.setTotal(cart.getTotal()+cartline.getTotal());
+			 cart.setCartLine(cart.getCartLine()+1);
+		
+			 cartlinedao.updateCart(cart);
+			 response="result=added";
+		}
+		
+		return response;
 	}
 
 }

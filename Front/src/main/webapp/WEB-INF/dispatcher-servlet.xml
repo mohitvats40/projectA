@@ -16,9 +16,6 @@
 	
 	
 	<context:component-scan base-package="com.niit.Front" />
-	
-	
-	
 	   
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">

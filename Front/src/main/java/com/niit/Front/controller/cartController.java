@@ -27,6 +27,9 @@ public class cartController {
 			case "deleted":
 				mv.addObject("message","Cartline is deleted!");
 				break;
+			case "added":
+				mv.addObject("message","Cartline is added!");
+				break;
 			case "error":
 				mv.addObject("message","Something wana wrong!");
 				break;
@@ -46,6 +49,11 @@ public class cartController {
 	@RequestMapping("/{cartlineId}/delete")
 	public String deleteCart(@PathVariable int cartlineId){
 		String response=cartService.deleteCartline(cartlineId);
+		return "redirect:/cart/show?"+response;
+	}
+	@RequestMapping("/add/{pId}/product")
+	public String addCart(@PathVariable int pId){
+		String response=cartService.addCartline(pId);
 		return "redirect:/cart/show?"+response;
 	}
 
