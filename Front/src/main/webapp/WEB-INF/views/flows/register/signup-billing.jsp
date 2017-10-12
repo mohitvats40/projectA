@@ -56,11 +56,11 @@
 	</div>
 	</div>
 	
-	<div class="form-group">
+	<div class="form-group hide">
 	<label class="control-label col-md-4"  for="countery">Countery</label>
 	<div class="col-md-8">
 	<sf:input type="text" path="countery" class="form-control" 
-	placeholder="Enter Countery Name"/>
+	value="India"/>
 	<sf:errors path="countery" cssClass="help-block" element="em" />
 	</div>
 	</div>

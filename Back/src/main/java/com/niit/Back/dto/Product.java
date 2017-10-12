@@ -8,6 +8,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Transient;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.web.multipart.MultipartFile;
@@ -30,8 +32,8 @@ public class Product {
 	@JsonIgnore
 	@NotBlank(message = "Please enter the product Description!")
 	private String pDesc;
-	@Min(value=1,message = "Please enter the product Price!")
 	private double pPrice;
+	
 	
 	private int pQat;
 	

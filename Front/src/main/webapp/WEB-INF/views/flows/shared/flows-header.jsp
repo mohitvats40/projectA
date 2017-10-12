@@ -17,7 +17,7 @@
 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 <meta name="description" content="">
 <meta name="author" content="">
-<link rel="icon" href="${images}/img1.jpg">
+<link rel="icon" href="${images}/mylogo.jpg">
 <title>Electromart- ${title}</title>
 
 <script>
@@ -31,7 +31,30 @@
 <link href="${css}/bootstrap.min.css" rel="stylesheet">
 <link href="${css}/dataTables.bootstrap.css" rel="stylesheet">
 <!-- Custom styles for this template -->
-<link href="${css}/style.css" rel="stylesheet">
+<style>
+body{
+padding-top:70px;
+}
+#ftr {
+	text-align: center;
+}
+.help-block{
+	color:#ff0000;
+}
+
+.footer {
+	min-height: 150px;
+	width: 100%;
+	background-color: #666666;
+	list-style: none;
+	color: #fff;
+	padding-top: 20px;
+	margin-top: 20px;
+	padding-top: 0px;
+}
+
+
+</style>
 
 
 </head>

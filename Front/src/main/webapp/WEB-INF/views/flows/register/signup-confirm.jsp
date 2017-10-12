@@ -1,6 +1,6 @@
 
 <%@include file="../shared/flows-header.jsp" %>
-
+    <br><br><br>
 	<div class="container">
 	<div class="row">
 	<div class="col-sm-6">
@@ -50,5 +50,5 @@
 	</div>
 	</div>
 	</div>
-
+<br><br><br>
 <%@include file="../shared/flows-footer.jsp" %>

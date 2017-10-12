@@ -56,5 +56,12 @@ public class cartController {
 		String response=cartService.addCartline(pId);
 		return "redirect:/cart/show?"+response;
 	}
+	@RequestMapping("final")
+	public ModelAndView fn() {
+		ModelAndView mv = new ModelAndView("page");
+		mv.addObject("title", "final");
+		mv.addObject("FINAL", true);
+		return mv;
+	}
 
 }

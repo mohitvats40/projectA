@@ -7,6 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotBlank;
 
@@ -36,12 +38,16 @@ public class Address implements Serializable{
 	@NotBlank(message="Please Enter Your Address Two!")
 	private String addessLine2;
 	@NotBlank(message="Please Enter Your City Name!")
+	@Pattern(regexp="a-z||A-Z", message="Your name should be in characters.")
 	private String city;
 	@NotBlank(message="Please Enter Your State Name!")
+	@Pattern(regexp="a-z||A-Z", message="Your name should be in characters.")
 	private String state;
 	@NotBlank(message="Please Enter Your Countery Name!")
 	private String countery;
 	@NotBlank(message="Please Enter Your PostalCode!")
+	@Pattern(regexp="0-9", message="Your name should be in number.")
+	@Size(min = 6, max = 6,message="Password should be in cheractors!")
 	private String postalCode;
 	private boolean shipping;
 	private boolean billing;

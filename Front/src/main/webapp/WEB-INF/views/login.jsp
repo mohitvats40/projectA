@@ -18,7 +18,7 @@
 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 <meta name="description" content="">
 <meta name="author" content="">
-<link rel="icon" href="${images}/img1.jpg">
+<link rel="icon" href="${images}/mylogo.jpg">
 <title>Electromart- ${title}</title>
 
 <script>
@@ -38,6 +38,7 @@
 </head>
 <body style="padding-top: 90px;">
 	<%@include file="navbar.jsp"%>
+	<br>
 	<div class="container">
 		<%-- --%>
 		<c:if test="${not empty message}">
@@ -91,7 +92,7 @@
 			<div class="col-md-6"></div>
 		</div>
 	</div>
-
+  <br><br><br>
 	<br>
 	<br>
 

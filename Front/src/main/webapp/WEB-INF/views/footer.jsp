@@ -1,3 +1,4 @@
+<div class="footer">
 <footer>
  
     <div class="container">
@@ -23,7 +24,7 @@
     <h3>login and regester</h3>
     <ul class="unstyle">
     <li><a href="${contextRoot}/login"><i class="fa fa-user" aria-hidden="true"></i>login</a></li>
-    <li><a href="${contextRoot}/regester"><i class="fa fa-pencil" aria-hidden="true"></i>regester</a></li>
+    <li><a href="${contextRoot}/register"><i class="fa fa-pencil" aria-hidden="true"></i>regester</a></li>
     
     
     </ul>
@@ -39,3 +40,4 @@
     </div>
     
     </footer>
+    </div>

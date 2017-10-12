@@ -40,14 +40,14 @@
 			<security:authorize access="isAuthenticated()">
 				<li class="dropdown" id="userCart"><a href="javascript:void(0)"
 					class="btn btn-inverse dropdown-toggle" id="dropdownMenu1"
-					data-toggle="dropdown"> ${usermodel.fullname} <span
+					data-toggle="dropdown"><i class="fa fa-user fa-2x" aria-hidden="true"></i> ${usermodel.fullname} <span
 						class="caret"></span>
 				</a>
 					<ul class="dropdown-menu">
 					<security:authorize access="hasAuthority('USER')">
 						<li><a href="${contextRoot}/cart/show"> <span
 								class="glyphicon glyphicon-shopping-cart"></span> <span
-								class="badge">${usermodel.cart.cartLine}</span> - &#8377;
+								class="badge">${usermodel.cart.cartLine}</span>  &#8377;
 								${usermodel.cart.total}
 						</a></li>
 						
