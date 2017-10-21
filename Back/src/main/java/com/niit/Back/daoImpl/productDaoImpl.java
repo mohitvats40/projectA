@@ -104,4 +104,18 @@ public class productDaoImpl implements productDao {
 				.getResultList();
 	}
 
+	@Override
+	public List<Product> getProductsByParam(String param, int count) {
+	String query = "FROM Product WHERE is_active = true ORDER BY " + param + " DESC";
+		
+		return sessionfactory
+					.getCurrentSession()
+					.createQuery(query,Product.class)
+					.setFirstResult(0)
+					.setMaxResults(count)
+					.getResultList();
+					
+		
+	}
+
 }

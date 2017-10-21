@@ -38,16 +38,16 @@ public class Address implements Serializable{
 	@NotBlank(message="Please Enter Your Address Two!")
 	private String addessLine2;
 	@NotBlank(message="Please Enter Your City Name!")
-	@Pattern(regexp="a-z||A-Z", message="Your name should be in characters.")
+	@Pattern(regexp="[a-zA-Z]+", message="Your name should be in characters.")
 	private String city;
 	@NotBlank(message="Please Enter Your State Name!")
-	@Pattern(regexp="a-z||A-Z", message="Your name should be in characters.")
+	@Pattern(regexp="[a-zA-Z]+", message="Your name should be in characters.")
 	private String state;
 	@NotBlank(message="Please Enter Your Countery Name!")
 	private String countery;
 	@NotBlank(message="Please Enter Your PostalCode!")
-	@Pattern(regexp="0-9", message="Your name should be in number.")
-	@Size(min = 6, max = 6,message="Password should be in cheractors!")
+	@Pattern(regexp="(^$|[0-9]{6})", message="Your postal code should be in number.")
+	@Size(min = 6, max = 6,message="Password should be in 6 digits!")
 	private String postalCode;
 	private boolean shipping;
 	private boolean billing;

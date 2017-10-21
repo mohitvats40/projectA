@@ -32,9 +32,10 @@ public class Product {
 	@JsonIgnore
 	@NotBlank(message = "Please enter the product Description!")
 	private String pDesc;
+	//@Pattern(regexp="(^$|[0-9])", message="Your name should be in nuberrs.")
 	private double pPrice;
 	
-	
+	//@Pattern(regexp="(^$|[0-9])", message="Your name should be in nuberrs.")
 	private int pQat;
 	
 	

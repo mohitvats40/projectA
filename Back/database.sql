@@ -17,7 +17,6 @@ INSERT INTO category(cName,cDesc,image_url,is_active) VALUES ('tv','SAMSUNG tv',
 INSERT INTO category(cName,cDesc,image_url,is_active) VALUES ('laptop','SAMSUNG laptop','ABC.3',true);
 
 CREATE TABLE user_detail(
-
 uId IDENTITY,
 fname VARCHAR(50),
 lname VARCHAR(50),
@@ -28,6 +27,19 @@ email VARCHAR(50),
 contactNumber VARCHAR(50),
 CONSTRAINT pk_user_id PRIMARY KEY(uId),
 
+);
+CREATE TABLE order_detail (
+	id IDENTITY,
+	user_id int,
+	order_total DECIMAL(10,2),
+	order_count int,
+	shipping_id int,
+	billing_id int,
+	order_date date,
+	CONSTRAINT fk_order_detail_user_id FOREIGN KEY (user_id) REFERENCES user (uId),
+	CONSTRAINT fk_order_detail_shipping_id FOREIGN KEY (shipping_id) REFERENCES address (aId),
+	CONSTRAINT fk_order_detail_billing_id FOREIGN KEY (billing_id) REFERENCES address (aId),
+	CONSTRAINT pk_order_detail_id PRIMARY KEY (id)
 );
 
 INSERT INTO user_detail

@@ -38,7 +38,7 @@ public class cartTest {
 		cartlinedao = (cartlineDao) context.getBean("cartlinedao");
 	}
 	
-	@Test
+	/*@Test
 	public void testaddcartline(){
 		user = userdao.getByEmail("aman@gmail.com");
 		
@@ -59,6 +59,28 @@ public class cartTest {
 	   cart.setCartLine(cart.getCartLine()+1);
 	   assertEquals("failed for add",true,cartlinedao.updateCart(cart));
 	
+	}*/
+	
+	@Test
+	public void testUpdateCartLine() {
+
+		// fetch the user and then cart of that user
+		User user = userdao.getByEmail("aman@gmail.com");		
+		Cart cart = user.getCart();
+				
+		cartline = cartlinedao.getByCartAndProduct(cart.getCrId(), 2);
+		
+		cartline.setpCount(cartline.getpCount() + 1);
+				
+		double oldTotal = cartline.getTotal();
+				
+		cartline.setTotal(cartline.getProduct().getpPrice() * cartline.getpCount());
+		
+		cart.setTotal(cart.getTotal() + (cartline.getTotal() - oldTotal));
+		
+		assertEquals("Failed to update the CartLine!",true, cartlinedao.update(cartline));	
+
+		
 	}
 	
 	

@@ -28,7 +28,7 @@ public class userDaoImpl implements userDao {
 			return true;
 		}
 		catch(Exception ex){
-			ex.printStackTrace();
+			//ex.printStackTrace();
 			return false;
 		}
 	
@@ -41,7 +41,7 @@ public class userDaoImpl implements userDao {
 			return true;
 		}
 		catch(Exception ex){
-			ex.printStackTrace();
+			//ex.printStackTrace();
 			return false;
 		}
 		
@@ -59,7 +59,7 @@ public class userDaoImpl implements userDao {
 					.getSingleResult();
 		}
 		catch(Exception ex){
-			ex.printStackTrace();
+			//ex.printStackTrace();
 			return null;
 		}
 	}
@@ -95,6 +95,39 @@ public class userDaoImpl implements userDao {
 		catch(Exception ex){
 			ex.printStackTrace();
 			return null;
+		}
+	}
+
+	@Override
+	public User get(User user) {
+		try {			
+			return sessionfactory.getCurrentSession().get(User.class, user);			
+		}
+		catch(Exception ex) {
+			System.out.println(ex.getMessage());
+			return null;
+		}
+	}
+
+	@Override
+	public Address getAddress(Address address) {
+		try {			
+			return sessionfactory.getCurrentSession().get(Address.class, address);			
+		}
+		catch(Exception ex) {
+			System.out.println(ex.getMessage());
+			return null;
+		}
+	}
+
+	@Override
+	public boolean updateAddress(Address address) {
+		try {			
+			sessionfactory.getCurrentSession().update(address);			
+			return true;
+		}
+		catch(Exception ex) {
+			return false;
 		}
 	}
 

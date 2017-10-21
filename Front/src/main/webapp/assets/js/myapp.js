@@ -105,15 +105,26 @@ $(function() {
 									if (row.pQat < 1) {
 										str += '<a href="javascript:void(0)" class="btn btn-success disabled"><span class="glyphicon glyphicon-shopping-cart"></span></a>';
 									} else {
-										str += '<a href="'
-												+ window.contextRoot
-												+ '/cart/add/'
-												+ data
-												+ '/product" class="btn btn-primary"><span class="glyphicon glyphicon-shopping-cart"></span></a>';
+										if (userRole == 'ADMIN') {
+											str += '<a href="'
+													+ window.contextRoot
+													+ '/admin/'
+													+ data
+													+ '/product" class="btn btn-warning"><span class="glyphicon glyphicon-pencil"></span></a>';
+
+										} else {
+											str += '<a href="'
+													+ window.contextRoot
+													+ '/cart/add/'
+													+ data
+													+ '/product" class="btn btn-success"><span class="glyphicon glyphicon-shopping-cart"></span></a>';
+
+										}
 									}
 
 									return str;
 								}
+
 							} ]
 
 				});
@@ -359,30 +370,31 @@ $(function() {
 		});
 	}
 
-	$('button[name="refreshCart"]').click(
-			function() {
-				var cartlineId = $(this).attr('value');
-				var countElement = $('#count_' + cartlineId);
-				var originalCount = countElement.attr('value');
-				var currentCount = countElement.val();
+	$('button[name="refreshCart"]')
+			.click(
+					function() {
+						var cartlineId = $(this).attr('value');
+						var countElement = $('#count_' + cartlineId);
+						var originalCount = countElement.attr('value');
+						var currentCount = countElement.val();
 
-				if (currentCount !== originalCount) {
-					if (currentCount < 1 || currentCount > 3) {
-						countElement.val(originalCount);
-						bootbox.alert({
-							size : 'medium',
-							title : 'Error',
-							message : 'Product count should be between 1 and 3'
-						});
-					} else {
-						var updateUrl = window.contextRoot + '/cart/'
-								+ cartlineId + '/update?pCount='
-								+ currentCount;
-						window.location.href = updateUrl;
-					}
-				}
+						if (currentCount !== originalCount) {
+							if (currentCount < 1 || currentCount > 3) {
+								countElement.val(originalCount);
+								bootbox
+										.alert({
+											size : 'medium',
+											title : 'Error',
+											message : 'Product count should be between 1 and 3'
+										});
+							} else {
+								var updateUrl = window.contextRoot + '/cart/'
+										+ cartlineId + '/update?pCount='
+										+ currentCount;
+								window.location.href = updateUrl;
+							}
+						}
 
-			});
-
+					});
 
 });

@@ -12,6 +12,8 @@ public interface productDao {
 	boolean update(Product product);
 	boolean delete(Product product);
 	
+	List<Product> getProductsByParam(String param, int count);
+	
 	//buseness method
 	List<Product> listActiveProduct();
 	List<Product> listActiveProductByCategory(int category_id);

@@ -28,22 +28,22 @@ public class User implements Serializable{
 	private int uId;
 	
 	@NotBlank(message="Please Enter Your First Name !")
-	@Pattern(regexp="a-z||A-Z", message="Your name should be in characters.")
+	@Pattern(regexp="[a-zA-Z]+", message="Your name should be in characters.")
 	private String fname;
 	@NotBlank(message="Please Enter Your Last Name!")
-	@Pattern(regexp="a-z||A-Z", message="Your name should be in characters.")
+	@Pattern(regexp="[a-zA-Z]+", message="Your name should be in characters.")
 	private String lname;
 	@NotBlank(message="Please Enter Your Email Address!")
 	@Pattern(regexp=".+@.+\\..+", message="Wrong email!")
 	private String email;
 	@NotBlank(message="Please Enter Your Contact Number!")
 	@Size(min=10 ,max=10, message="contect no should be 10 digits!")
-	@Pattern(regexp="0-9", message="Your name should be in nuberrs.")
+	@Pattern(regexp="(^$|[0-9]{10})", message="Your contact no should be in numbers.")
 	private String contectno;
 	
 	private String role;
 	@NotBlank(message="Please Enter Password!")
-	@Size(min = 6, max = 15,message="Password should be more then 6 cheractors!")
+	@Size(min = 6, max = 12,message="Password should be more then 6 cheractors!")
 	private String password;
 	private boolean enabled = true;
 	@Transient

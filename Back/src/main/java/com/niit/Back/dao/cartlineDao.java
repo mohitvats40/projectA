@@ -3,6 +3,7 @@ package com.niit.Back.dao;
 import java.util.List;
 
 import com.niit.Back.dto.Cart;
+import com.niit.Back.dto.OrderDetail;
 import com.niit.Back.dto.cartLine;
 
 public interface cartlineDao {
@@ -22,6 +23,7 @@ public interface cartlineDao {
 	public cartLine getByCartAndProduct(int crId,int pId);
 	
 	boolean updateCart(Cart cart);
+	boolean addOrderDetail(OrderDetail orderDetail);
 	
 
 }

@@ -23,10 +23,10 @@
 					class="fa fa-phone fa-2x"></i> CONTACTus</a></li>
 			<li id="product"><a href="${contextRoot}/show/all/products"><i
 					class="fa fa-list fa-2x"></i>Our Products</a></li>
-					<security:authorize access="hasAuthority('ADMIN')">
-			<li id="adminProduct"><a href="${contextRoot}/admin/product"><i
-					class="fa fa-list fa-2x"></i>Admin Products</a></li>
-					</security:authorize>
+			<security:authorize access="hasAuthority('ADMIN')">
+				<li id="adminProduct"><a href="${contextRoot}/admin/product"><i
+						class="fa fa-list fa-2x"></i>Admin Products</a></li>
+			</security:authorize>
 
 		</ul>
 		<ul class="nav navbar-nav pull-right">
@@ -40,18 +40,18 @@
 			<security:authorize access="isAuthenticated()">
 				<li class="dropdown" id="userCart"><a href="javascript:void(0)"
 					class="btn btn-inverse dropdown-toggle" id="dropdownMenu1"
-					data-toggle="dropdown"><i class="fa fa-user fa-2x" aria-hidden="true"></i> ${usermodel.fullname} <span
-						class="caret"></span>
+					data-toggle="dropdown"><i class="fa fa-user fa-2x"
+						aria-hidden="true"></i> ${usermodel.fullname} <span class="caret"></span>
 				</a>
 					<ul class="dropdown-menu">
-					<security:authorize access="hasAuthority('USER')">
-						<li><a href="${contextRoot}/cart/show"> <span
-								class="glyphicon glyphicon-shopping-cart"></span> <span
-								class="badge">${usermodel.cart.cartLine}</span>  &#8377;
-								${usermodel.cart.total}
-						</a></li>
-						
-						<li class="divider" role="separator"></li>
+						<security:authorize access="hasAuthority('USER')">
+							<li><a href="${contextRoot}/cart/show"> <span
+									class="glyphicon glyphicon-shopping-cart"></span> <span
+									class="badge">${usermodel.cart.cartLine}</span> &#8377;
+									${usermodel.cart.total}
+							</a></li>
+
+							<li class="divider" role="separator"></li>
 						</security:authorize>
 						<li><a href="${contextRoot}/perform-logout">Logout</a></li>
 					</ul></li>
@@ -59,6 +59,12 @@
 		</ul>
 
 	</div>
-
-
 </nav>
+
+
+<script>
+	window.userRole = '${usermodel.role}';
+</script>
+
+
+
